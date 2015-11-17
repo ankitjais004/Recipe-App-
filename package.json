@@ -1,0 +1,25 @@
+{
+  "name": "recipe_app",
+  "version": "1.0.0",
+  "description": "an app where you can add your recipes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankitjais004/Recipe_App.git"
+  },
+  "author": "ankit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankitjais004/Recipe_App/issues"
+  },
+  "homepage": "https://github.com/ankitjais004/Recipe_App#readme",
+  "dependencies": {
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-redux": "^4.0.0",
+    "redux": "^3.0.4"
+  }
+}

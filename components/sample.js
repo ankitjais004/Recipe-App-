@@ -1,13 +1,9 @@
-import React , { Component } from "react";
+import React from "react";
+import ReactDOM from 'react-dom';
 
-export default class HelloMessage extends React.Component{
-  render(){
-    return(
-      <div class="showing_msg">
-        Hello
-      </div>
-    )
+class Sample extends React.Components {
+  render() {
+    return <div> Learn Webpack </div>
   }
 }
-
-React.render(<HelloMessage />, document.querySelector("body"));
+ReactDOM.render(<Sample />, document.body);

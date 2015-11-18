@@ -2,28 +2,37 @@ var webpack = require('webpack');
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 var ROOT_PATH = path.resolve(__dirname);
-//var merge = require('webpack-merge');
-//var Target = process.env.npm_lifecycle_event;
+var APP_PATH = path.resolve(ROOT_PATH,'components');
+var BUILD_PATH = path.resolve(ROOT_PATH,'build');
+var merge = require('webpack-merge');
+var TARGET = process.env.npm_lifecycle_event;
 
 module.exports = {
-  entry: '/components/sample.js'
+  entry: './components/sample.js',
   resolve: {
     extensions: ['', '.js']
   },
   output:{
-    path: path.resolve(ROOT_PATH, 'build')
+    path: BUILD_PATH,
     filename: 'bundle.js'
   },
+  devServer: {
+      historyApiFallback: true,
+      hot: true,
+      inline: true,
+      progress: true,
+      host: process.env.HOST,
+      port: process.env.PORT
+    },
   module: {
     loaders: [
       {
         test: /\.js?$/,
         loaders: ['babel'],
-        exclude: node_modules,
-        include: path.resolve(ROOT_PATH, 'components')
+        include: APP_PATH
       }
     ]
-  }
+  },
   plugin: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlwebpackPlugin({
@@ -31,18 +40,3 @@ module.exports = {
     })
   ]
 };
-
-// if(TARGET === 'start' || !TARGET) {
-//   module.exports = merge(common, {
-//     devtool: 'eval-source-map',
-//     devServer: {
-//       historyApiFallback: true,
-//       hot: true,
-//       inline: true,
-//       progress: true
-//     },
-//     plugins: [
-
-//     ]
-//   });
-// }

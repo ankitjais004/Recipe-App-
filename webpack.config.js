@@ -8,6 +8,7 @@ var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH,'components');
 var BUILD_PATH = path.resolve(ROOT_PATH,'build');
 
+
 process.env.BABEL_ENV = TARGET;
 
 var common = {
@@ -24,6 +25,7 @@ var common = {
       }
     ]
   },
+
   plugins: [
     new HtmlwebpackPlugin({
       title: 'Recipe App'

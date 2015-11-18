@@ -30,15 +30,16 @@ export default class SignUpPage extends React.Component {
   render() {
     return (
       <div>
-        <div className='header'>
-          <nav>
+        <div className='homeLoginSignUpHeader'>
+          <nav className="headerLinkOptions">
             <Link to="/home"><h3> Home </h3> </Link>
-            <Link to="/log_in"><h3> LogIn </h3> </Link>
+            <Link to="/LogInPage"><h3> LogIn </h3> </Link>
             <a href='#'><h3> About </h3> </a>
           </nav>
         </div>
 
-        <div className="signUp">
+
+        <div className="logInSignUpFormHolder">
           <form className='signUpForm' onSubmit= { this.handleSubmit }>
             <input type='text' placeholder='Enter Your Full Name' ref='username' />
             <input type='text' placeholder='Enter Your Date Of Birth' ref='user_DOB' />
@@ -48,6 +49,7 @@ export default class SignUpPage extends React.Component {
             <input type='submit' value= 'SignUp' />
           </form>
         </div>
+        { this.props.children }
      </div>
     );
   }

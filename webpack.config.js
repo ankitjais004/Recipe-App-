@@ -13,8 +13,11 @@ process.env.BABEL_ENV = TARGET;
 
 var common = {
   entry: './components/sample.js',
+
   resolve: {
     extensions: ['', '.js', '.jsx']
+  },
+
   module: {
     loaders: [
       {

@@ -17,14 +17,18 @@
   },
   "homepage": "https://github.com/ankitjais004/Recipe_App#readme",
   "dependencies": {
+    "path": "^0.12.7",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-redux": "^4.0.0",
     "redux": "^3.0.4"
   },
   "devDependencies": {
+    "babel-core": "^5.8.34",
+    "babel-loader": "^5.4.0",
     "html-webpack-plugin": "^1.6.2",
     "webpack": "^1.12.6",
-    "webpack-dev-server": "^1.12.1"
+    "webpack-dev-server": "^1.12.1",
+    "webpack-merge": "^0.3.0"
   }
 }

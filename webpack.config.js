@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var HtmlwebpackPlugin = require('html-webpack-plugin');
 var merge = require('webpack-merge');
 
 var TARGET = process.env.npm_lifecycle_event;
@@ -26,13 +25,7 @@ var common = {
         include: APP_PATH
       }
     ]
-  },
-
-  plugins: [
-    new HtmlwebpackPlugin({
-      title: 'Recipe App'
-    })
-  ]
+  }
 };
 
 if(TARGET === 'start' || !TARGET) {
@@ -40,6 +33,7 @@ if(TARGET === 'start' || !TARGET) {
     devtool: 'eval-source-map',
     devServer: {
       historyApiFallback: true,
+
       hot: true,
       inline: true,
       progress: true,

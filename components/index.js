@@ -1,14 +1,15 @@
-import { React } from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
+import  React from "react";
+import ReactDOM from "react-dom";
+//import { Provider } from "react-redux";
 
-import Home from "./Home_Page";
+import Home from "./Home_Page.js";
 
-let mergeOnto = document.querySelector("body");
+class Index extends React.Component{
+  render(){
+    return <div className="homePageMergedOn"><Home /></div>
+  }
+}
 
-render(
-  <Provider>
-    <Home />
-  </Provider>,
-  mergeOnto
-)
+const app = document.createElement('div');
+document.body.appendChild(app);
+ReactDOM.render(<Index />, app);

@@ -18,10 +18,9 @@ ReactDOM.render((
     <Route>
       <Route path="/" component={ HomePage }>
         <Redirect from="home" to="/" />
+        <Route path="SignUpPage" component={ SignUpPage } />
+        <Route path="LogInPage" component={ LogInPage } />
       </Route>
-
-      <Route path="SignUpPage" component={ SignUpPage } />
-      <Route path="LogInPage" component={ LogInPage } />
     </Route>
 
     </Router>

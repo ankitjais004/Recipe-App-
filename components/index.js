@@ -1,15 +1,28 @@
 import  React from "react";
+import { Router, Route, Link , Redirect } from 'react-router';
 import ReactDOM from "react-dom";
-//import { Provider } from "react-redux";
 
-import Home from "./Home_Page.js";
+import { createHistory, useBasename } from 'history';
+const history = useBasename(createHistory)({
+  basename: '/components'
+})
 
-class Index extends React.Component{
-  render(){
-    return <div className="homePageMergedOn"><Home /></div>
-  }
-}
+import HomePage from "./HomePage.js";
+import LogInPage from "./LogInPage.js";
+import SignUpPage from "./SignUpPage.js";
 
-const app = document.createElement('div');
-document.body.appendChild(app);
-ReactDOM.render(<Index />, app);
+
+ReactDOM.render((
+    <Router history={ history } >
+
+    <Route>
+      <Route path="/" component={ HomePage }>
+        <Redirect from="home" to="/" />
+      </Route>
+
+      <Route path="SignUpPage" component={ SignUpPage } />
+      <Route path="LogInPage" component={ LogInPage } />
+    </Route>
+
+    </Router>
+), document.querySelector(".main"));

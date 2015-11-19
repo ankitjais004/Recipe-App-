@@ -1,0 +1,13 @@
+.homeLoginSignUpHeader {
+  display: flex;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  border: groove;
+  float: right;
+  }
+
+.logInSignUpFormHolder {
+  border: groove;
+  float: left;
+}

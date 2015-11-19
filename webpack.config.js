@@ -23,7 +23,13 @@ var common = {
         test: /\.jsx?$/,
         loaders: ['babel'],
         include: APP_PATH
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css'],
+        include: path.resolve(ROOT_PATH,"stylesheet")
       }
+
     ]
   }
 };

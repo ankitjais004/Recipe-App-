@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Link from "react-router";
 
 export default class LogInPage extends React.Component {
   constructor(props){
@@ -31,26 +32,27 @@ export default class LogInPage extends React.Component {
   render() {
     return (
 
-      <div>
+        <div>
         <div className="homeLoginSignUpHeader">
-          <nav className="headerLinkOptions">
-            <Link to="/home"><h3> Home </h3> </Link>
-            <Link to="/SignUpPage"><h3> Sign Up </h3> </Link>
-            <a href='#'><h3> About </h3> </a>
-          </nav>
+        <nav className="headerLinkOptions">
+        <Link to="/home"><h3> Home </h3> </Link>
+        <Link to="/SignUpPage"><h3> Sign Up </h3> </Link>
+        <a href='#'><h3> About </h3> </a>
+        </nav>
         </div>
         <div className="logInSignUpFormHolder">
-          <form className='LoginForm' onSubmit= { this.handleSubmit }>
+        <form className='LoginForm' onSubmit= { this.handleSubmit }>
 
-            <div className="notice_board">{ this.state.notice_board }</div>
-
-              <input type='email' placeholder='a@b.xyz' ref='mail_address' />
-              <input type='password' placeholder="Enter Your Password" ref='password' />
-              <a href="#" className="forget_password" onclick= { this.handleForgotPassword } > Forgot password? </a>
-              <input type='submit' value= 'LogIn' />
-          </form>
+        <div className="notice_board">{ this.state.notice_board }</div>
+        <label> Enter Your Email address </label> <br/>
+        <input type='email' placeholder='a@b.xyz' ref='mail_address' /> <br/>
+        <label> Enter Your Password </label> <br/>
+        <input type='password' placeholder="***********" ref='password' /> <br/>
+        <a href="#" className="forget_password" onclick= { this.handleForgotPassword } > Forgot password? </a> <br/>
+        <input type='submit' value= 'LogIn' />
+        </form>
         </div>
-      </div>
+        </div>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "react-router"
+import Router , { Link , Route , RouteHandler , Redirect } from "react-router";
 
 export default class SignUpPage extends React.Component {
   constructor(props){
@@ -31,11 +31,11 @@ export default class SignUpPage extends React.Component {
     return (
         <div>
         <div className='homeLoginSignUpHeader'>
-        <nav className="headerLinkOptions">
-        <Link to="/home"><h3> Home </h3> </Link>
-        <Link to="/LogInPage"><h3> LogIn </h3> </Link>
-        <a href='#'><h3> About </h3> </a>
-        </nav>
+          <nav className="headerLinkOptions">
+            <Link to="/home"><b> Home </b> </Link> ||
+            <Link to="/LogInPage"><b> LogIn </b> </Link> ||
+            <a href='#'><b> About </b> </a>
+          </nav>
         </div>
 
 

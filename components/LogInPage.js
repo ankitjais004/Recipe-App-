@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Link from "react-router";
+import Router , { Link , Route , RouteHandler , Redirect } from "react-router";
+
 
 export default class LogInPage extends React.Component {
   constructor(props){
@@ -34,12 +35,14 @@ export default class LogInPage extends React.Component {
 
         <div>
         <div className="homeLoginSignUpHeader">
-        <nav className="headerLinkOptions">
-        <Link to="/home"><h3> Home </h3> </Link>
-        <Link to="/SignUpPage"><h3> Sign Up </h3> </Link>
-        <a href='#'><h3> About </h3> </a>
-        </nav>
-        </div>
+
+         <nav className="headerLinkOptions">
+          <Link to="/home"><b> Home </b> </Link> ||
+          <Link to="/SignUpPage"><b> Sign Up </b> </Link> ||
+          <a href='#'><b> About </b> </a>
+         </nav>
+
+       </div>
         <div className="logInSignUpFormHolder">
         <form className='LoginForm' onSubmit= { this.handleSubmit }>
 

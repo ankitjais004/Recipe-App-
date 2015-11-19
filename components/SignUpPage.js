@@ -6,7 +6,7 @@ export default class SignUpPage extends React.Component {
     super(props);
     this.state = { "Notice" : ""}
     this.handleSubmit = this.handleSubmit.bind(this);
-    };
+  };
 
   handleSubmit(e){
     e.preventDefault();
@@ -29,28 +29,33 @@ export default class SignUpPage extends React.Component {
 
   render() {
     return (
-      <div>
+        <div>
         <div className='homeLoginSignUpHeader'>
-          <nav className="headerLinkOptions">
-            <Link to="/home"><h3> Home </h3> </Link>
-            <Link to="/LogInPage"><h3> LogIn </h3> </Link>
-            <a href='#'><h3> About </h3> </a>
-          </nav>
+        <nav className="headerLinkOptions">
+        <Link to="/home"><h3> Home </h3> </Link>
+        <Link to="/LogInPage"><h3> LogIn </h3> </Link>
+        <a href='#'><h3> About </h3> </a>
+        </nav>
         </div>
 
 
         <div className="logInSignUpFormHolder">
-          <form className='signUpForm' onSubmit= { this.handleSubmit }>
-            <input type='text' placeholder='Enter Your Full Name' ref='username' />
-            <input type='text' placeholder='Enter Your Date Of Birth' ref='user_DOB' />
-            <input type='email' placeholder='a@b.xyz' ref='mail_address' />
-            <input type='password' placeholder="Enter Your Password" ref='create_password' />
-            <input type='password' placeholder="Enter Your Password again" ref='confirm_password' />
-            <input type='submit' value= 'SignUp' />
-          </form>
+        <form className='signUpForm' onSubmit= { this.handleSubmit }>
+        Enter Your Full Name<br/>
+        <p> <input type='text' placeholder='Enter Your Full Name' ref='username' /> </p>
+        Enter Your Date Of Birth <br/>
+        <p> <input type='text' placeholder='Enter Your Date Of Birth' ref='user_DOB' /> <br/> </p>
+        Enter your Email Address <br/>
+        <p>  <input type='email' placeholder='a@b.xyz' ref='mail_address' /> <br/> </p>
+        Enter Your Password <br/>
+        <p> <input type='password' placeholder="Enter Your Password" ref='create_password' /> <br/> </p>
+        Confirm Your Password <br/>
+        <p> <input type='password' placeholder="Enter Your Password again" ref='confirm_password' /> <br/></p>
+        <input type='submit' value= 'SignUp' />
+        </form>
         </div>
         { this.props.children }
-     </div>
+      </div>
     );
   }
 }

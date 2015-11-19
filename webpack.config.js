@@ -11,7 +11,7 @@ var BUILD_PATH = path.resolve(ROOT_PATH,'build');
 process.env.BABEL_ENV = TARGET;
 
 var common = {
-  entry: './components/index.js',
+  entry: './components/index.jsx',
 
   resolve: {
     extensions: ['', '.js', '.jsx']

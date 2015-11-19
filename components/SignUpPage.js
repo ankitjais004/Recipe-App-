@@ -15,11 +15,16 @@ export default class SignUpPage extends React.Component {
     var create_password = React.findDOMNode(this.refs.create_password).value.trim();
     var confirm_password = React.findDOMNode(this.refs.confirm_password).value.trim();
     var user_DOB = React.findDOMNode(this.refs.DOB).value.trim();
-    if(!username || !email ||!paasword ) {
-      this.setState({ "Notice": "Please Enter Your Details"})
+    if(!username || !email ||!create_paasword || !confirm_password) {
+      this.setState({ "Notice" : "Please fill up the form properly "})
+    }else{
+      if(confirm_password !== create_paasword){
+        this.setState({ "Notice" : "Make sure you have typed confirm password correctly"})
+      }
+      //for sending data for verification from database
+      //this.props.onCommentSubmit({ user: username, mailId: email, password: password});
     }
-    //for sending data for verification from database
-    //this.props.onCommentSubmit({ user: username, mailId: email, password: password});
+
 
     React.findDOMNode(this.refs.username).value = '';
     React.findDOMNode(this.refs.mail_address).value = '';

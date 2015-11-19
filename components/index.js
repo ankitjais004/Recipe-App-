@@ -11,6 +11,7 @@ const history = useBasename(createHistory)({
 import HomePage from "./HomePage.js";
 import LogInPage from "./LogInPage.js";
 import SignUpPage from "./SignUpPage.js";
+import ForgetPassword from "./ForgetPassword.js";
 
 
 ReactDOM.render((
@@ -22,6 +23,8 @@ ReactDOM.render((
           <Redirect from="home" to="/" />
         </Route>
         <Route path="/SignUpPage" component={ SignUpPage } />
+        <Route path="ForgetPassword" component={ ForgetPassword }/>
+
         <Route path="/LogInPage" component={ LogInPage } />
 
       </Route>

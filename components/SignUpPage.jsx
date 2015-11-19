@@ -4,7 +4,7 @@ import Router , { Link , Route , RouteHandler , Redirect } from "react-router";
 export default class SignUpPage extends React.Component {
   constructor(props){
     super(props);
-    this.state = { "Notice" : ""}
+    this.state = { "NoticeBoard" : ""}
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
@@ -34,30 +34,31 @@ export default class SignUpPage extends React.Component {
 
   render() {
     return (
-        <div>
+      <div>
         <div className='homeLoginSignUpHeader'>
           <nav className="headerLinkOptions">
-            <Link to="/home"><b> Home </b> </Link> ||
-            <Link to="/LogInPage"><b> LogIn </b> </Link> ||
-            <a href='#'><b> About </b> </a>
+            <Link to="/home"> <b> Home </b> </Link> &nbsp; &nbsp;
+            <Link to="/LogInPage"> <b> LogIn </b> </Link> &nbsp; &nbsp;
+            <a href='#'> <b> About </b> </a>
           </nav>
         </div>
 
 
-        <div className="logInSignUpFormHolder">
-        <form className='signUpForm' onSubmit= { this.handleSubmit }>
-        Enter Your Full Name<br/>
-        <p> <input type='text' placeholder='Enter Your Full Name' ref='username' /> </p>
-        Enter Your Date Of Birth <br/>
-        <p> <input type='text' placeholder='Enter Your Date Of Birth' ref='user_DOB' /> <br/> </p>
-        Enter your Email Address <br/>
-        <p>  <input type='email' placeholder='a@b.xyz' ref='mail_address' /> <br/> </p>
-        Enter Your Password <br/>
-        <p> <input type='password' placeholder="Enter Your Password" ref='create_password' /> <br/> </p>
-        Confirm Your Password <br/>
-        <p> <input type='password' placeholder="Enter Your Password again" ref='confirm_password' /> <br/></p>
-        <input type='submit' value= 'SignUp' />
-        </form>
+        <div className="signUpFormHolder">
+          <form className='signUpForm' onSubmit= { this.handleSubmit }>
+            <div className="noticeBoard">{ this.state.NoticeBoard }</div>
+            Enter Your Full Name<br/>
+            <p> <input type='text' placeholder='Enter Your Full Name' ref='username' /> </p>
+            Enter Your Date Of Birth <br/>
+            <p> <input type='text' placeholder='Enter Your Date Of Birth' ref='user_DOB' /> <br/> </p>
+            Enter your Email Address <br/>
+            <p>  <input type='email' placeholder='a@b.xyz' ref='mail_address' /> <br/> </p>
+            Enter Your Password <br/>
+            <p> <input type='password' placeholder="Enter Your Password" ref='create_password' /> <br/> </p>
+            Confirm Your Password <br/>
+            <p> <input type='password' placeholder="Enter Your Password again" ref='confirm_password' /> <br/></p>
+            <input type='submit' value= 'SignUp' />
+          </form>
         </div>
         { this.props.children }
       </div>

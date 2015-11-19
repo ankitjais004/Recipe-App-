@@ -17,10 +17,10 @@ export default class ForgetPassword extends React.Component{
     return(
       <div>
         <form className="forgetPasswordForm" onSubmit={ this.handleSubmit }>
-           <div className="notice_board">{ this.state.NoticeBoard }</div>
-           <label> Enter your registered email address </label>
-           <input type="email" placeholder="a@b.xyz" ref="mailAddress" /><br/>
-           <input type="button" value="Reset Password" />
+          <div className="noticeBoard">{ this.state.NoticeBoard }</div>
+          <label> Enter your registered email address </label>
+          <input type="email" placeholder="a@b.xyz" ref="mailAddress" /><br/>
+          <input type="button" value="Reset Password" />
         </form>
       </div>
     )

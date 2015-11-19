@@ -30,17 +30,26 @@ export default class LogInPage extends React.Component {
 
   render() {
     return (
-      <div className="logIn">
-        <form className='LoginForm' onSubmit= { this.handleSubmit }>
 
-          <div className="notice_board">{ this.state.notice_board }</div>
+      <div>
+        <div className="homeLoginSignUpHeader">
+          <nav className="headerLinkOptions">
+            <Link to="/home"><h3> Home </h3> </Link>
+            <Link to="/SignUpPage"><h3> Sign Up </h3> </Link>
+            <a href='#'><h3> About </h3> </a>
+          </nav>
+        </div>
+        <div className="logInSignUpFormHolder">
+          <form className='LoginForm' onSubmit= { this.handleSubmit }>
 
-          <input type='email' placeholder='a@b.xyz' ref='mail_address' />
-          <input type='password' placeholder="Enter Your Password" ref='password' />
-          <a href="#" className="forget_password" onclick= { this.handleForgotPassword } > Forgot password? </a>
-          <input type='submit' value= 'LogIn' />
+            <div className="notice_board">{ this.state.notice_board }</div>
 
-        </form>
+              <input type='email' placeholder='a@b.xyz' ref='mail_address' />
+              <input type='password' placeholder="Enter Your Password" ref='password' />
+              <a href="#" className="forget_password" onclick= { this.handleForgotPassword } > Forgot password? </a>
+              <input type='submit' value= 'LogIn' />
+          </form>
+        </div>
       </div>
     );
   }

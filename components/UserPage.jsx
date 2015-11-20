@@ -7,7 +7,7 @@ import RecipeList from "./RecipeList.jsx";
 export default class UserPage extends React.Component {
   constructor(props){
     super(props);
-    this.state = ({'flag': 2} , { "RecipeBox" : [] } );
+    this.state = ({ 'flag': 2 , "RecipeBox" : [] });
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   };
@@ -26,7 +26,7 @@ export default class UserPage extends React.Component {
   render() {
     var createRecipe;
     if( this.state.flag % 2 === 1){
-      createRecipe =   <CreatingRecipe />
+      createRecipe =   <CreatingRecipe onSubmitRecipe = {RecipeName => this.handleSubmit(RecipeName)} />
       //document.querySelector("#createRecipeButton").val = "Dismiss Recipe";
     }
     //else if( this.state.flag % 2 === 0){

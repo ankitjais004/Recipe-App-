@@ -5,7 +5,10 @@ export default class CreatingRecipe extends React.Component{
 
   constructor(props){
     super(props);
+    this.state = ({ "details" : 0 });
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getOtherDetails = this.getOtherDetails.bind(this);
+    this.setOtherDetails = this.setOtherDetails.bind(this);
   };
 
   handleSubmit(e){
@@ -19,7 +22,20 @@ export default class CreatingRecipe extends React.Component{
     console.log("RecipeIngredients name",RecipeIngredients);
     console.log("Recipe process name",RecipeProcess);
     console.log("Recipe good for name",RecipeIsGoodFor);
+    this.props.onSubmitRecipe(RecipeName);
   };
+
+  setOtherDetails(){
+    this.setState({ details: 1 });
+  };
+
+  getOtherDetails(){
+    if(this.state.details === 1){
+      return ( <textarea rows="5" cols="55" ref="moreAboutRecipe" placeholder="Provide more things about your recipe"></textarea> );
+    }else{
+      return;
+    }
+  }
 
   getGoodForPeople(){
     var array = [];
@@ -52,10 +68,10 @@ export default class CreatingRecipe extends React.Component{
           For All <input type="checkbox" className="goodForPeople" value="For All" />
 
           <p>Process : &nbsp;
-            <textarea rows="10" cols="50" ref="recipeProcess" placeholder="Enter you recipe process here"></textarea>
+            <textarea rows="5" cols="55" ref="recipeProcess" placeholder="Enter you recipe process here"></textarea>
           </p>
 
-          <b>! I have certain things to say...</b>
+          <div className="otherDetailsAboutRecipeDiv" onClick={ this.setOtherDetails }><b>! I have certain things to say... : &nbsp;</b> { this.getOtherDetails() }</div>
           <p><input type="submit" value="Create My Recipe" /></p>
 
         </form>

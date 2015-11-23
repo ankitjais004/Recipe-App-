@@ -44,6 +44,7 @@ export default class UserPage extends React.Component {
       NoList = "Empty List";
     }
 
+
     return (
       <div>
       <span id="header"><h1> Welcome to Your Profile </h1></span>
@@ -58,5 +59,4 @@ export default class UserPage extends React.Component {
       </div>
     );
   }
-
 }

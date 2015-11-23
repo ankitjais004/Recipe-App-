@@ -33,14 +33,10 @@ nav.headerLinkOptions {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
 }
 
 .RecipeList {
   float: left;
 
-}
-
-.RecipeList {
-  border: 1px #9e9e9e solid;
-  float: ;
 }

@@ -5,7 +5,6 @@ import CreatingRecipe from "./CreatingRecipe.jsx";
 import RecipeList from "./RecipeList.jsx";
 
 export default class UserPage extends React.Component {
-
   constructor(props){
     super(props);
     this.state = ({ 'flag': 2 , "RecipeBox" : [], "Button": "Create New Recipe" });
@@ -60,5 +59,4 @@ export default class UserPage extends React.Component {
       </div>
     );
   }
-
 }

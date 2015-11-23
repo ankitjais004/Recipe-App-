@@ -17,8 +17,8 @@ nav.headerLinkOptions {
   padding: 10px;
 }
 
-#headings{
-  float: left;
+#header{
+  display: block;
 }
 
 .createRecipeFormHolder {
@@ -29,9 +29,12 @@ nav.headerLinkOptions {
 }
 
 .createRecipeButtonAndFormBinder {
-  float: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-input#creatRecipeButton {
-  float: right;
+.RecipeList {
+  float: left;
+
 }

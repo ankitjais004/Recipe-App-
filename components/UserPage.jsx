@@ -35,7 +35,7 @@ export default class UserPage extends React.Component {
 
         };
         if (recipes.length === 0 ){
-            NoList = "Empty List";
+            NoList = "Oopss no recipe";
         }
 
         return (

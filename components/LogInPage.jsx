@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
-import { checkButton } from "../actions/actions.js"
 import Router , { Link , Route , RouteHandler , Redirect } from "react-router";
 
 
@@ -10,7 +9,6 @@ class LogInPage extends React.Component {
         super(props);
         this.state = { "NoticeBoard" : "" };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleClick = this.handleClick.bind(this);
     };
 
     handleSubmit(e){
@@ -28,16 +26,9 @@ class LogInPage extends React.Component {
            this.props.onCommentSubmit({ mailId: email, password: pass});
            }*/
     };
-    handleClick(e){
-        var buttonClickValue = ReactDOM.findDOMNode(this.refs.abc).value.trim();
-       // console.log(buttonClickValue);
-        this.props.dispatch(checkButton(buttonClickValue))
-    }
 
     render() {
-        const { checkButton } = this.props
-        console.log(checkButton);
-        return (
+      return (
             <div>
               <div className="homeLoginSignUpHeader">
                 <nav className="headerLinkOptions">
@@ -46,15 +37,6 @@ class LogInPage extends React.Component {
                   <a href='#'><b> About </b> </a>
                 </nav>
               </div>
-
-
-              <div className="checkButton">
-                <input type="text" placeholder="Enter anything" ref="abc" />
-                <button onClick={this.handleClick}> Click!! </button>
-                 {checkButton}
-              </div>
-
-
               <div className="logInFormHolder">
                 <form className='LoginForm' onSubmit= { this.handleSubmit }>
                   <div className="noticeBoard">{ this.state.NoticeBoard }</div>
@@ -70,11 +52,4 @@ class LogInPage extends React.Component {
         );
     }
 }
-function select(state) {
-    //console.log(state)
-  return {
-    checkButton: state.checkButton.text
-  }
-}
-
-export default connect(select)(LogInPage)
+export default LogInPage

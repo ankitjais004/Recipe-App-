@@ -8,7 +8,7 @@ export default class RecipeList extends React.Component {
     var items = this.props.RecipeItems;
     return(
       <div>
-        <p> Your Recipes: </p>
+        <h2> Your Recipes: </h2>
         <ul> {items.map((recipe, index) =>
               <Recipe item={recipe} key = {index} />
               )}

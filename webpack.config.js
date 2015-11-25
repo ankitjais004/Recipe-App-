@@ -4,7 +4,7 @@ var merge = require('webpack-merge');
 
 var TARGET = process.env.npm_lifecycle_event;
 var ROOT_PATH = path.resolve(__dirname);
-var APP_PATH = path.resolve(ROOT_PATH,'components');
+var APP_PATH = path.resolve(ROOT_PATH, 'components');
 var BUILD_PATH = path.resolve(ROOT_PATH,'build');
 
 
@@ -20,9 +20,11 @@ var common = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js(x?)$/,
         loaders: ['babel'],
-        include: APP_PATH
+        include: ROOT_PATH,
+        exclude: /node_modules/
+
       },
       {
         test: /\.css$/,

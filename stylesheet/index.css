@@ -1,7 +1,14 @@
-nav.headerLinkOptions {
+#header{
+  background-color: #ffe5e5;
+}
+
+
+
+.headerLinkOptions {
   display: flex;
   justify-content: flex-end;
   margin: 20px;
+  float: right;
 }
 
 .signUpFormHolder {
@@ -26,12 +33,14 @@ nav.headerLinkOptions {
   width: 500px;
   padding: 10px;
   margin-top: 30px;
+
 }
 
 .createRecipeButtonAndFormBinder {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-right: 150px;
 }
 
 .RecipeList {

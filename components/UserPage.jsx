@@ -10,7 +10,7 @@ import {connect} from "react-redux";
 export default class UserPage extends React.Component {
     constructor(props){
         super(props);
-        this.state = ({ "flag": 2 , "Button": "Create New Recipe" });
+        this.state = ({ "flag": 2 , "Button": "Create New Recipe" , "submit":false });
         this.handleClick = this.handleClick.bind(this);
 
     };
@@ -27,11 +27,17 @@ export default class UserPage extends React.Component {
             this.setState({Button: "Create New Recipe"})
         }
     };
+
+    changeState(){
+        this.setState({submit: true})
+    };
+
     render() {
         const {dispatch, recipes} = this.props;
         var createRecipe , NoList = '';
-        if(this.state.flag % 2 === 1){
-            createRecipe =   <CreatingRecipe onSubmitRecipe = {recipeData => dispatch(addRecipe(recipeData))} />
+        if(this.state.flag % 2 === 1 && this.state.submit === false){
+            createRecipe =   <CreatingRecipe onSubmitRecipe = {recipeData => dispatch(addRecipe(recipeData))}
+                                             changeFormAppear= { formSubmitted => this.changeState } />
 
         };
         if (recipes.length === 0 ){
@@ -49,7 +55,8 @@ export default class UserPage extends React.Component {
                 {NoList}
               </div>
               <div className="createRecipeButtonAndFormBinder">
-                <input type="button" onClick= {this.handleClick } value={this.state.Button} id="createRecipeButton" ref="createRecipeButtonRef" />
+                <input type="button" onClick= {this.handleClick } value={this.state.Button}
+                       id="createRecipeButton" ref="createRecipeButtonRef" />
                 { createRecipe }
               </div>
             </div>

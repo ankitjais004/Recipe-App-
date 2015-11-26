@@ -38,6 +38,7 @@ export default class CreatingRecipe extends React.Component{
             RecipeNote
         }
         this.props.onSubmitRecipe(recipeData);
+        this.props.changeFormAppear("ola");
 
     };
 

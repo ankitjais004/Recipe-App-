@@ -17,6 +17,7 @@ import LogInPage from "./LogInPage.jsx";
 import SignUpPage from "./SignUpPage.jsx";
 import ForgetPassword from "./ForgetPassword.jsx";
 import UserPage from "./UserPage.jsx";
+import ShowRecipe from "./ShowRecipe.jsx";
 
 let store = createStore(recipeApp);
 
@@ -29,6 +30,8 @@ const routes = (
       <Route path="ForgetPassword" component={ ForgetPassword }/>
       <Route path="/LogInPage" component={ LogInPage } />
       <Route path="/UserPage" component={ UserPage } />
+      <Route name="ShowRecipe" path="/ShowRecipe/:recipeId" component={ ShowRecipe } />
+
     </Route>
 );
 

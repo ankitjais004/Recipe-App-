@@ -17,13 +17,17 @@
   },
   "homepage": "https://github.com/ankitjais004/Recipe_App#readme",
   "dependencies": {
+    "es6-promise": "^3.0.2",
     "history": "^1.13.1",
+    "isomorphic-fetch": "^2.2.0",
     "path": "^0.12.7",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-redux": "^4.0.0",
     "react-router": "^1.0.0",
-    "redux": "^3.0.4"
+    "redux": "^3.0.4",
+    "redux-promise": "^0.5.0",
+    "redux-promise-middleware": "^2.2.4"
   },
   "devDependencies": {
     "babel-core": "^5.8.34",

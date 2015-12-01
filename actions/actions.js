@@ -1,12 +1,16 @@
 export const ADD_RECIPE = 'ADD_RECIPE';
-export const CHECK_BUTTON = 'CHECK_BUTTON';
+export const LOG_IN = 'LOG_IN';
+export const LOG_OUT = 'LOG_OUT'
+import login from '../apiCalls/apicalls.js'
 
-export function addRecipe(text) {
- // console.log(text.RecipeName);
-  return { type: ADD_RECIPE, text }
+
+export function logIn(text) {
+  return{
+    type: LOG_IN,
+    payload: login(text)
+
+  }
 }
-
-export function checkButton(text) {
-  //console.log(text)
-  return { type: CHECK_BUTTON, text}
+export function addRecipe(text) {
+  return { type: ADD_RECIPE, text }
 }

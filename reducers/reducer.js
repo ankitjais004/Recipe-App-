@@ -1,5 +1,5 @@
 import {combineReducers } from 'redux'
-import { ADD_RECIPE, CHECK_BUTTON} from '../actions/actions.js'
+import { ADD_RECIPE, LOG_IN} from '../actions/actions.js'
 
 function recipes(state = [], action) {
   switch (action.type) {
@@ -17,22 +17,23 @@ function recipes(state = [], action) {
   default: return state;
   }
 }
-function checkButton(state= [], action) {
-  switch(action.type) {
-  case CHECK_BUTTON:
-    return [
-        ...state,
-      {
-        text: action.text
-      }
+function logIn(state= [], action) {
 
-    ]
-  default: return state;
-  }
+  switch(action.type) {
+  case LOG_IN:
+    return [ {
+      id: action.payload.id,
+      userName: action.payload.first_name,
+      email: action.payload.email
+    }
+           ]
+    default: return state;
+    }
 }
+
 
 const recipeApp = combineReducers({
   recipes,
-  checkButton
+  logIn
 });
 export default recipeApp

@@ -3,32 +3,36 @@ import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import Router , { Link , Route , RouteHandler , Redirect } from "react-router";
 
+import {logIn} from "../actions/actions.js";
 
 class LogInPage extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = { "NoticeBoard" : "" };
-        this.handleSubmit = this.handleSubmit.bind(this);
-    };
+  constructor(props, context){
+    super(props, context);
+    this.state = { "NoticeBoard" : "" };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  };
 
-    handleSubmit(e){
-        e.preventDefault();
-        var email = ReactDOM.findDOMNode(this.refs.mailAddress).value.trim();
-        var password = ReactDOM.findDOMNode(this.refs.password).value.trim();
-        if(!email || !password) {
-            this.setState({
-                notice_board : "Please provide both email address and password"
-            });
-            return false;
-        }
-        /*else{
-           for sending data for verification from database
-           this.props.onCommentSubmit({ mailId: email, password: pass});
-           }*/
-    };
+  handleSubmit(e){
+    e.preventDefault();
+    var email = ReactDOM.findDOMNode(this.refs.mailAddress).value.trim();
+    var password = ReactDOM.findDOMNode(this.refs.password).value.trim();
+    var data = {
+      email,
+      password
+    }
+    if(!email || !password) {
+      this.setState({
+        notice_board : "Please provide both email address and password"
+      });
+      return false;
+    }
+    else {
+      this.props.dispatch(logIn(data)).then(() => this.context.history.pushState(null, '/UserPage'))
+           }
+  };
 
     render() {
-      return (
+        return (
             <div>
               <div className="homeLoginSignUpHeader">
                 <nav className="headerLinkOptions">
@@ -50,6 +54,16 @@ class LogInPage extends React.Component {
               </div>
             </div>
         );
-    }
+  }
 }
-export default LogInPage
+
+LogInPage.contextTypes = {
+  history: React.PropTypes.object
+};
+
+function select(state) {
+  return {
+    logIn: state.logIn
+  }
+}
+export default connect(select)(LogInPage)

@@ -29,7 +29,7 @@ export default class UserPage extends React.Component {
   };
 
   render() {
-    const {dispatch, recipes} = this.props;
+    const {dispatch, recipes, logIn} = this.props;
     var NoList = '';
     if (recipes.length === 0 )
       NoList = "Oopss no recipe";
@@ -39,7 +39,7 @@ export default class UserPage extends React.Component {
         <div className="headerLinkOptions">
           <Link to="/home"> <b> LogOut </b> </Link>
         </div>
-        <span id="header"><h1> Welcome to Your Profile </h1></span>
+        <span id="header"><h1> Welcome to Your Profile {logIn.userName} </h1></span>
         <div className="RecipeList">
           <RecipeList RecipeItems = {recipes} />
           {NoList}
@@ -55,7 +55,8 @@ export default class UserPage extends React.Component {
 
 function select(state) {
   return {
-    recipes: state.recipes
+    recipes: state.recipes,
+    logIn: state.logIn[0]
   }
 }
 

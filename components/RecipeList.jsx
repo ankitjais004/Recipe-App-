@@ -9,10 +9,12 @@ export default class RecipeList extends React.Component {
     return(
       <div>
         <h2> Your Recipes: </h2>
+      <i>Click to View/edit </i>
         <ul> {items.map((recipe, index) =>
               <Recipe item={recipe} key = {index} position={index} />
               )}
         </ul>
+
       </div>
     )
 

@@ -7,6 +7,7 @@ import SignUpPage from "./SignUpPage.jsx";
 
 class HomePage extends React.Component{
     render() {
+
         return(
             <div className="homeLoginSignUpHeader">
               <nav className="headerLinkOptions">

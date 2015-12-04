@@ -4,7 +4,7 @@ import {searchIndex} from "../actions/actions.js"
 export default class Recipe extends React.Component {
 
     render() {
-        console.log(this.props.position);
+        //console.log(this.props.position);
         return(
             <div>
               <li> <Link to={"/ShowRecipe/"+this.props.position}> {this.props.item.RecipeName} </Link> </li>

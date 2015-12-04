@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-export default class CreatingRecipe extends React.Component{
+import {connect} from "react-redux";
+import {addRecipe} from "../actions/actions.js";
+
+class CreatingRecipe extends React.Component{
 
   constructor(props){
     super(props);
@@ -15,6 +18,8 @@ export default class CreatingRecipe extends React.Component{
     var RecipeIngredients = ReactDOM.findDOMNode(this.refs.recipeIngredients).value;
     var RecipeProcess = ReactDOM.findDOMNode(this.refs.recipeProcess).value;
     var RecipeNote = ReactDOM.findDOMNode(this.refs.recipeNote).value;
+    var UserId = this.props.user.id;
+    var BrandId = 1;
 
     ReactDOM.findDOMNode(this.refs.recipeName).value = '';
     ReactDOM.findDOMNode(this.refs.recipeType).value = '';
@@ -23,13 +28,15 @@ export default class CreatingRecipe extends React.Component{
     ReactDOM.findDOMNode(this.refs.recipeNote).value = '';
 
     var recipeData = {
+      UserId,
       RecipeName,
-      RecipeType,
-      RecipeIngredients,
+      BrandId,
+      //RecipeType,
+      //RecipeIngredients,
       RecipeProcess,
       RecipeNote
     };
-    this.props.onSubmitRecipe(recipeData);
+    this.props.dispatch(addRecipe(recipeData));
   };
 
   render(){
@@ -63,3 +70,11 @@ export default class CreatingRecipe extends React.Component{
     )
   }
 };
+
+function select(state) {
+  return {
+    recipes: state.recipes,
+    user: state.user[0]
+  }
+}
+ export default connect(select)(CreatingRecipe)

@@ -25,6 +25,7 @@ const routes = (
   <Route path="/" component={ HomePage }>
   <Redirect from="home" to="/" />
   </Route>
+
   <Route path="/SignUpPage" component={ SignUpPage } />
   <Route path="ForgetPassword" component={ ForgetPassword }/>
   <Route path="/LogInPage" component={ LogInPage } />

@@ -1,25 +1,49 @@
 import {combineReducers } from 'redux'
-import { ADD_RECIPE, LOG_IN} from '../actions/actions.js'
+import { ADD_RECIPE, LOG_IN, LOG_OUT, SIGN_UP} from '../actions/actions.js'
 
 function recipes(state = [], action) {
   switch (action.type) {
+  case LOG_IN:
+    return [
+        ...state,
+        ...action.payload.recipes.map((recipe) =>{
+          return ({
+            RecipeID: recipe.id,
+            RecipeName: recipe.name,
+            RecipeProcess: recipe.description,
+            RecipeBrand: recipe.brand_id,
+            RecipeUserId: recipe.user_id
+          });
+        })
+    ]
   case ADD_RECIPE:
     return [
         ...state,
       {
-        RecipeName: action.text.RecipeName,
-        RecipeType: action.text.RecipeType,
-        RecipeIngredients: action.text.RecipeProcess,
-        RecipeProcess: action.text.RecipeProcess,
-        RecipeNote: action.text.RecipeNote
+        RecipeID: action.payload.id,
+        RecipeName: action.payload.name,
+        RecipeProcess: action.payload.description,
+        RecipeBrand: action.payload.brand_id,
+        RecipeUserId: action.payload.user_id
       }
     ]
+  case LOG_OUT:
+    return []
   default: return state;
   }
 }
-function logIn(state= [], action) {
+function user(state= [], action) {
 
   switch(action.type) {
+  case SIGN_UP:
+    return [
+      {
+        id: action.payload.id,
+        userName: action.payload.first_name,
+        email: action.payload.email
+      }
+    ]
+
   case LOG_IN:
     return [ {
       id: action.payload.id,
@@ -27,13 +51,15 @@ function logIn(state= [], action) {
       email: action.payload.email
     }
            ]
-    default: return state;
-    }
+  case LOG_OUT:
+    return [];
+  default: return state;
+  }
 }
 
 
 const recipeApp = combineReducers({
   recipes,
-  logIn
+  user
 });
 export default recipeApp

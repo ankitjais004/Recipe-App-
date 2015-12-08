@@ -1,11 +1,13 @@
 export const ADD_RECIPE = 'ADD_RECIPE';
 export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
-export const SIGN_UP = 'SIGN_UP'
+export const SIGN_UP = 'SIGN_UP';
+export const UPDATE_RECIPE = 'UPDATE_RECIPE';
 
 import loginApi from '../apiCalls/loginApi.js'
 import signupApi from '../apiCalls/signupApi.js'
 import recipeApi from '../apiCalls/recipeApi.js'
+import updateRecipeApi from '../apiCalls/updateRecipeApi.js'
 
 export function signUp(text) {
   return{
@@ -30,5 +32,11 @@ export function addRecipe(text) {
   return {
     type: ADD_RECIPE,
     payload: recipeApi(text)
+  }
+}
+export function updateRecipe(text){
+  return {
+    type: UPDATE_RECIPE,
+    payload: updateRecipeApi(text)
   }
 }

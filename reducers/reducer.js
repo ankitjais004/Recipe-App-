@@ -33,9 +33,8 @@ function recipes(state = [], action) {
   }
 }
 function user(state= [], action) {
-
   switch(action.type) {
-  case SIGN_UP:
+     case SIGN_UP:
     return [
       {
         id: action.payload.id,

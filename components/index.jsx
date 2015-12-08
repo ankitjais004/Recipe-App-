@@ -17,6 +17,7 @@ import SignUpPage from "./SignUpPage.jsx";
 import ForgetPassword from "./ForgetPassword.jsx";
 import UserPage from "./UserPage.jsx";
 import ShowRecipe from "./ShowRecipe.jsx";
+import UpdateRecipePage from "./UpdateRecipePage.jsx";
 
 let store = configureStore();
 
@@ -31,6 +32,7 @@ const routes = (
   <Route path="/LogInPage" component={ LogInPage } />
   <Route name="userpage" path="/UserPage" component={ UserPage } />
   <Route name="ShowRecipe" path="/ShowRecipe/:recipeId" component={ ShowRecipe } />
+  <Route path="/UpdateRecipePage/:recipeID/:index" component={ UpdateRecipePage } />
 
   </Route>
 );

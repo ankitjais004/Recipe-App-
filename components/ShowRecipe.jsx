@@ -12,7 +12,7 @@ class ShowRecipe extends React.Component {
       <div>
       <div className="backToUserPage">
       <Link to="/UserPage"> <b> Back </b> </Link>|
-      <Link to="/UpdatePage/"><b> edit </b> </Link>
+      <Link to={"/UpdateRecipePage/"+Recipe.RecipeID}><b> edit </b> </Link>
 
       </div>
       <h1> {Recipe.RecipeName}  </h1>

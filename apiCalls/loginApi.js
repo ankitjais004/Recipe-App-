@@ -13,6 +13,7 @@ export default function login(text){
 
   return fetch("http://localhost:3000/api/sessions", obj)
     .then((d) => {if(d.status===401) {
+
       alert("Invalid Email Or Password")
       }
                   else {

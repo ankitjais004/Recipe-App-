@@ -65,7 +65,7 @@ UserPage.contextTypes = {
 };
 
 function select(state) {
-    //console.log(state.user[0])
+    console.log(state.user[0])
     return {
         recipes: state.recipes,
         user: state.user[0]

@@ -4,7 +4,7 @@ import {Link} from "react-router";
 
 import CreatingRecipe from "./CreatingRecipe.jsx";
 import RecipeList from "./RecipeList.jsx";
-import {addRecipe, logOut} from "../actions/actions.js";
+import {addRecipe, logOut, recipes} from "../actions/actions.js";
 import {connect} from "react-redux";
 
 export default class UserPage extends React.Component {
@@ -14,6 +14,12 @@ export default class UserPage extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
     };
+    componentWillMount(){
+        //debugger
+        console.log(this.props.user)
+           // this.props.dispatch(recipes(localStorage.id))
+    }
+g
 
     handleClick(e) {
         e.preventDefault();
@@ -31,6 +37,9 @@ export default class UserPage extends React.Component {
 
     handleLogout(e) {
         e.preventDefault();
+        localStorage.removeItem("id");
+        localStorage.removeItem("userName");
+        localStorage.removeItem("email");
         this.props.dispatch(logOut()).then(() => this.context.history.pushState(null, '/'))
     };
 
@@ -65,7 +74,6 @@ UserPage.contextTypes = {
 };
 
 function select(state) {
-    console.log(state.user[0])
     return {
         recipes: state.recipes,
         user: state.user[0]

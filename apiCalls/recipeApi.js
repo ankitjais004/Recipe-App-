@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-export default function recipeApi(text){
+export default function updateRecipeApi(text){
 
   var obj = {
     method: 'POST',

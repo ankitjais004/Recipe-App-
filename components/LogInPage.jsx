@@ -8,9 +8,16 @@ import {logIn} from "../actions/actions.js";
 class LogInPage extends React.Component {
     constructor(props, context){
         super(props, context);
-        this.state = { "NoticeBoard" : "" };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleLocalStorage = this.handleLocalStorage.bind(this);
     };
+
+    handleLocalStorage(info){
+        localStorage.setItem("id", info.id);
+        localStorage.setItem("userName", info.first_name);
+        localStorage.setItem("email", info.email);
+
+    }
 
     handleSubmit(e){
         e.preventDefault();
@@ -20,15 +27,11 @@ class LogInPage extends React.Component {
             email,
             password
         }
-        if(!email || !password) {
-            this.setState({
-                notice_board : "Please provide both email address and password"
-            });
-            return false;
-        }
-        else {
-            this.props.dispatch(logIn(data)).then(() => this.context.history.pushState(null, '/UserPage'))
-        }
+
+        this.props.dispatch(logIn(data))
+            .then((d) => {this.handleLocalStorage(d.payload)})
+            .then(() => this.context.history.pushState(null, '/UserPage'))
+
     };
 
     render() {
@@ -43,7 +46,6 @@ class LogInPage extends React.Component {
               </div>
               <div className="logInFormHolder">
                 <form className='LoginForm' onSubmit= { this.handleSubmit }>
-                  <div className="noticeBoard">{ this.state.NoticeBoard }</div>
                   <label> *Email address: </label>
                   &nbsp;
                   <input type='email' placeholder='a@b.xyz' ref='mailAddress' /> <br/>
@@ -64,8 +66,8 @@ LogInPage.contextTypes = {
 };
 
 function select(state) {
-        return {
-            user: state.user
-        }
+    return {
+        user: state.user
+    }
 }
 export default connect(select)(LogInPage)

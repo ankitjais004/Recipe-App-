@@ -1,8 +1,9 @@
 import {combineReducers } from 'redux'
-import { ADD_RECIPE, LOG_IN, LOG_OUT, SIGN_UP} from '../actions/actions.js'
+import { ADD_RECIPE, LOG_IN, LOG_OUT, SIGN_UP, RECIPES } from '../actions/actions.js'
 
 function recipes(state = [], action) {
   switch (action.type) {
+
   case LOG_IN:
     return [
         ...state,
@@ -33,8 +34,9 @@ function recipes(state = [], action) {
   }
 }
 function user(state= [], action) {
+
   switch(action.type) {
-     case SIGN_UP:
+  case SIGN_UP:
     return [
       {
         id: action.payload.id,
@@ -52,13 +54,13 @@ function user(state= [], action) {
            ]
   case LOG_OUT:
     return [];
+
   default: return state;
   }
 }
 
-
-const recipeApp = combineReducers({
-  recipes,
-  user
-});
-export default recipeApp
+  const recipeApp = combineReducers({
+    recipes,
+    user
+  });
+  export default recipeApp
